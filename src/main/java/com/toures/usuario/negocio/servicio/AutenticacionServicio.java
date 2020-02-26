@@ -31,7 +31,9 @@ public class AutenticacionServicio {
         if (Objects.isNull(usuario)) {
             responseEntity = ResponseEntity.status(401).build();
         } else {
-            Autenticacion autenticacion = autenticacionRepositorio.buscarPorUsuarioYContrasena(usuario, md5.cifrar(password));
+            String cifrado=md5.cifrar(password);
+            System.out.println("-".concat(cifrado).concat("-"));
+            Autenticacion autenticacion = autenticacionRepositorio.buscarPorUsuarioYContrasena(usuario, cifrado);
             if (Objects.isNull(autenticacion)) {
                 responseEntity = ResponseEntity.status(401).build();
             } else {

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/usuario/telefono")
-public class UsuarioTelefonoControlador {
+public class TelefonoControlador {
     @GetMapping
     public ResponseEntity<Void> getInfoTelefono(Integer idCliente){
         return ResponseEntity.ok().build();

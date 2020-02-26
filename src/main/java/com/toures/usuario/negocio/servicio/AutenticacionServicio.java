@@ -41,7 +41,6 @@ public class AutenticacionServicio {
         }
         return responseEntity;
     }
-
     private String generarJWT(Usuario usuario){
         String token=null;
         try {

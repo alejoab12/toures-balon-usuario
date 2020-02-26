@@ -34,6 +34,8 @@ public class AutenticacionServicio {
             String cifrado=md5.cifrar(password);
             System.out.println("-".concat(cifrado).concat("-"));
             Autenticacion autenticacion = autenticacionRepositorio.buscarPorUsuarioYContrasena(usuario, cifrado);
+            Autenticacion aut2=autenticacionRepositorio.findByUsuarioIdAndActivo(usuario,(short)1);
+            System.out.println(aut2);
             if (Objects.isNull(autenticacion)) {
                 responseEntity = ResponseEntity.status(401).build();
             } else {

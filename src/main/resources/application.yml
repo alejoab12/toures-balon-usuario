@@ -5,7 +5,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/toures_domain_usuario
+    url: jdbc:mysql://172.17.0.2:3306/toures_domain_usuario
     username: root
     password: root
   application:

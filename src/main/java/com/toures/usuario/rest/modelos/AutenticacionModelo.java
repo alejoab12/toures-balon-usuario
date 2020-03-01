@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class AutenticacionModelo {
-    private String correo;
-    private String nombreUsuario;
-    private String contrasena;
+	private String correo;
+	private String nombreUsuario;
+	private String contrasena;
 }

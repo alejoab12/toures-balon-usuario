@@ -26,7 +26,7 @@ public class AutenticacionServicio {
     private MD5 md5;
 
     public ResponseEntity<Void> validarUsuario(String correo, String nombreUsuario, String password) {
-        ResponseEntity responseEntity = null;
+        ResponseEntity<Void> responseEntity = null;
         Usuario usuario = usuarioRepositorio.findByNombreUsuarioOrCorreo(nombreUsuario, correo);
         if (Objects.isNull(usuario)) {
             responseEntity = ResponseEntity.status(401).build();

@@ -1,0 +1,16 @@
+server:
+  port: 9085
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/toures_domain_usuario
+    username: root
+    password: root
+  application:
+    name: toures-balon-usuario
+eureka:
+  client:
+    service-url: {"http://172.17.0.6:8761/eureka"}
+      

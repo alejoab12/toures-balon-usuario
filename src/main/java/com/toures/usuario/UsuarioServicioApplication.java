@@ -1,11 +1,12 @@
 package com.toures.usuario;
 
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@Aspect
+@EnableDiscoveryClient
+@EnableFeignClients
 @SpringBootApplication
 public class UsuarioServicioApplication {
 

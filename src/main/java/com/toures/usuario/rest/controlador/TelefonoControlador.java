@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/usuario/telefono")
 public class TelefonoControlador {
-    @GetMapping
-    public ResponseEntity<Void> getInfoTelefono(Integer idCliente){
-        return ResponseEntity.ok().build();
+	@GetMapping
+	public ResponseEntity<Void> getInfoTelefono(Integer idCliente) {
+		return ResponseEntity.ok().build();
 
-    }
+	}
 }

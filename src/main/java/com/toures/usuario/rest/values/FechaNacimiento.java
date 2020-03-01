@@ -1,19 +1,20 @@
 package com.toures.usuario.rest.values;
 
-import lombok.Getter;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+
+import lombok.Getter;
 
 @Getter
 public class FechaNacimiento {
-    @NotNull
-    private Date value;
+	@NotNull
+	private Date value;
 
-    public FechaNacimiento() {
-    }
+	public FechaNacimiento() {
+	}
 
-    public FechaNacimiento(Date value) {
-        this.value = value;
-    }
+	public FechaNacimiento(Date value) {
+		this.value = value;
+	}
 }

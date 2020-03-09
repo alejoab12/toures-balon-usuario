@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.toures.usuario.negocio.servicio.DireccionServicio;
 import com.toures.usuario.rest.modelos.DireccionModelo;
-import com.toures.usuario.rest.values.DireccionValue;
 
 @RestController
 @RequestMapping("/usuario/direccion")
@@ -29,7 +28,7 @@ public class DireccionControlador {
 
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	public ResponseEntity<Void> crearDireccionEnCliente(@RequestBody DireccionModelo direccionModelo) {
-		this.direccionServicio.crearDireccion(new DireccionValue(direccionModelo));
+		this.direccionServicio.crearDireccion(direccionModelo);
 		return ResponseEntity.ok().build();
 	}
 }

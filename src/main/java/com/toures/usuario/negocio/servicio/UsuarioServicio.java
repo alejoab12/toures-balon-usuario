@@ -13,7 +13,6 @@ import com.toures.usuario.persistencia.entidad.Usuario;
 import com.toures.usuario.persistencia.repositorio.AutenticacionRepositorio;
 import com.toures.usuario.persistencia.repositorio.UsuarioRepositorio;
 import com.toures.usuario.rest.modelos.UsuarioModelo;
-import com.toures.usuario.rest.values.UsuarioValue;
 
 @Service
 public class UsuarioServicio {
@@ -24,18 +23,18 @@ public class UsuarioServicio {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncode;
 
-	public void crearUsuario(UsuarioValue userModel) {
+	public void crearUsuario(UsuarioModelo userModel) {
 		Usuario usuario = userModel.toEntity();
 		Autenticacion autenticacion = new Autenticacion();
 		autenticacion.setActivo((short) 1);
-		autenticacion.setContrasena(passwordEncode.encode(userModel.getContrasena().getValue()));
+		autenticacion.setContrasena(passwordEncode.encode(userModel.getContrasena()));
 		autenticacion.setUsuarioId(usuario);
 		autenticacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
 		usuarioRepositorio.saveAndFlush(usuario);
 		autenticacionRepositorio.saveAndFlush(autenticacion);
 	}
 
-	public UsuarioModelo buscarUsuario(Integer id, Integer tipoDocumento, Long documento) {
+	public UsuarioModelo buscarUsuario(Integer id, Integer tipoDocumento, String documento) {
 		UsuarioModelo usuarioModelo = null;
 
 		if (Objects.nonNull(id)) {

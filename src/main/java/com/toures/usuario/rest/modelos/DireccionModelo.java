@@ -2,6 +2,7 @@ package com.toures.usuario.rest.modelos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.toures.usuario.persistencia.entidad.Direccion;
+import com.toures.usuario.persistencia.entidad.Usuario;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -31,6 +32,15 @@ public class DireccionModelo {
 		this.fechaInactivacion = direccion.getFechaInactivacion();
 		this.nombre = direccion.getNombre();
 		this.usuarioId = direccion.getUsuarioId().getId();
+	}
+
+	public Direccion toEntity() {
+		Direccion direccion = new Direccion();
+		direccion.setDireccion(this.direccion.toUpperCase());
+		direccion.setNombre(this.nombre.toUpperCase());
+		direccion.setUsuarioId(new Usuario(usuarioId));
+		return direccion;
+
 	}
 
 }

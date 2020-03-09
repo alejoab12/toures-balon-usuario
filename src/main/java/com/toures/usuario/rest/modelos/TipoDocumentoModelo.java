@@ -8,7 +8,7 @@ public class TipoDocumentoModelo {
 
 	private Integer id;
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	private String name;
+	private String nombre;
 
 	public TipoDocumentoModelo() {
 	}
@@ -17,8 +17,8 @@ public class TipoDocumentoModelo {
 		this.id = id;
 	}
 
-	public TipoDocumentoModelo(Integer id, String name) {
+	public TipoDocumentoModelo(Integer id, String nombre) {
 		this.id = id;
-		this.name = name;
+		this.nombre = nombre;
 	}
 }

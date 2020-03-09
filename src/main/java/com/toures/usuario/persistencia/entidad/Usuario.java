@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,6 +26,8 @@ public class Usuario {
     private Date fechaNacimiento;
     @Column(name = "puntos_acomulados")
     private Integer puntosAcomulados;
+    @OneToMany(mappedBy = "usuarioId",targetEntity = UsuarioRol.class)
+    private List<UsuarioRol> usuarioRoles;
     public Usuario(Integer id){
         this.id=id;
     }

@@ -3,6 +3,9 @@ package com.toures.usuario.rest.modelos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.toures.usuario.persistencia.entidad.Usuario;
 import lombok.Data;
+import java.util.List;
+import java.util.Objects;
+import java.util.ArrayList;
 
 import java.util.Date;
 
@@ -22,6 +25,7 @@ public class UsuarioModelo {
 	private Integer puntosAcomulados;
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String contrasena;
+	private List<RolModelo> roles;
 
 	public UsuarioModelo() {
 	}
@@ -37,6 +41,12 @@ public class UsuarioModelo {
 		this.apellido = usuario.getApellido();
 		this.fechaNacimiento = usuario.getFechaNacimiento();
 		this.puntosAcomulados = usuario.getPuntosAcomulados();
+		if(Objects.nonNull(usuario.getUsuarioRoles())&&!usuario.getUsuarioRoles().isEmpty()) {
+			this.roles=new ArrayList<>(usuario.getUsuarioRoles().size());
+			usuario.getUsuarioRoles().forEach(rol->{
+				this.roles.add(new RolModelo(rol.getRolId()));
+			});
+		}
 	}
 
 }

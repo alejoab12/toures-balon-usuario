@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.toures.usuario.negocio.servicio.AutenticacionServicio;
+import com.toures.usuario.rest.modelos.AutenticacionModelo;
 
 @RestController
-@RequestMapping("/usuario/autenticacion")
+@RequestMapping("/autenticacion")
 public class AutenticacionControlador {
 	@Autowired
 	private AutenticacionServicio autenticacionServicio;
 
 	@PostMapping
-	public ResponseEntity<Void> validacionUsuario(@RequestParam(required = false) String nombreUsuario,
-			@RequestParam(required = false) String correo, @RequestParam String password) {
-		return autenticacionServicio.validarUsuario(correo, nombreUsuario, password);
+	public ResponseEntity<AutenticacionModelo> validacionUsuario(@RequestParam(required = false) String nombreUsuario,
+			@RequestParam(required = false) String correo) {
+		return ResponseEntity.ok(autenticacionServicio.validarUsuario(correo, nombreUsuario));
 	}
 }

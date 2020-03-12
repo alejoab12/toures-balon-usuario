@@ -20,7 +20,6 @@ public class TipoUsuarioControlador {
 
 	@Autowired
 	private TipoUsuarioServicio tipoUsuarioServicio;
-
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<TipoUsuarioModelo>> getUser() {
 		return ResponseEntity.ok(tipoUsuarioServicio.consultarTiposUsuario());

@@ -2,6 +2,10 @@ package com.toures.usuario.rest.modelos;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Pattern;
+
+import com.toures.usuario.constantes.ExpreReg;
+import com.toures.usuario.constantes.ExpreRegMensage;
 import com.toures.usuario.persistencia.entidad.Telefono;
 import com.toures.usuario.persistencia.entidad.Usuario;
 
@@ -9,14 +13,17 @@ import lombok.Data;
 
 @Data
 public class TelefonoModelo {
-
+	@Pattern(regexp = ExpreReg.REGEX_SOLO_NUMEROS, message = ExpreRegMensage.MENSAJE_SOLO_NUMEROS)
 	private Integer id;
+	@Pattern(regexp = ExpreReg.REGEX_TELEFONO, message = ExpreRegMensage.MENSAJE_TELEFONO)
 	private String telefono;
 	private Short activo;
+	@Pattern(regexp = ExpreReg.REGEX_LETRAS_NUMEROS, message = ExpreRegMensage.MENSAJE_LETRAS_NUMEROS)
 	private String nombre;
 	private Timestamp fechaCreacion;
 	private Timestamp fechaInactivacion;
-	private Integer usuarioId;
+	@Pattern(regexp = ExpreReg.REGEX_SOLO_NUMEROS, message = ExpreRegMensage.MENSAJE_SOLO_NUMEROS)
+	private String usuarioId;
 
 	public TelefonoModelo() {
 	}

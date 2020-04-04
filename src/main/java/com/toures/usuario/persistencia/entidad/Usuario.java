@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,8 +16,7 @@ import lombok.Data;
 @Table(name = "Usuario")
 public class Usuario {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	@ManyToOne(targetEntity = TipoDocumento.class)
 	@JoinColumn(name = "tipo_documento_id")
 	private TipoDocumento tipoDocumentoId;
@@ -35,7 +32,7 @@ public class Usuario {
 	@JoinColumn(name = "tipo_usuario_id")
 	private TipoUsuario tipoUsuario;
 
-	public Usuario(Integer id) {
+	public Usuario(String id) {
 		this.id = id;
 	}
 

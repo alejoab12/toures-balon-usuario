@@ -14,7 +14,7 @@ public class TelefonoServicio {
 	@Autowired
 	private TelefonoRepositorio telefonoRepositorio;
 
-	public List<TelefonoModelo> buscarTelefonoPorIdCliente(Integer idCliente) {
+	public List<TelefonoModelo> buscarTelefonoPorIdCliente(String idCliente) {
 		return telefonoRepositorio.findByUsuarioId(idCliente).stream().map(t -> new TelefonoModelo(t))
 				.collect(Collectors.toList());
 	}

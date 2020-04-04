@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.commons.gema.kafka.aspect.annotation.GenerateEvent;
 import com.toures.usuario.persistencia.entidad.Autenticacion;
 import com.toures.usuario.persistencia.entidad.TipoDocumento;
 import com.toures.usuario.persistencia.entidad.Usuario;
@@ -23,6 +24,7 @@ public class UsuarioServicio {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncode;
 
+	@GenerateEvent
 	public void crearUsuario(UsuarioModelo userModel) {
 		Usuario usuario = userModel.toEntity();
 		Autenticacion autenticacion = new Autenticacion();
@@ -34,7 +36,7 @@ public class UsuarioServicio {
 		autenticacionRepositorio.saveAndFlush(autenticacion);
 	}
 
-	public UsuarioModelo buscarUsuario(Integer id, Integer tipoDocumento, String documento) {
+	public UsuarioModelo buscarUsuario(String id, Integer tipoDocumento, String documento) {
 		UsuarioModelo usuarioModelo = null;
 
 		if (Objects.nonNull(id)) {

@@ -10,5 +10,5 @@ import com.toures.usuario.persistencia.entidad.Telefono;
 @Repository
 public interface TelefonoRepositorio extends JpaRepository<Telefono, Integer> {
 
-	public List<Telefono> findByUsuarioId(Integer usuarioId);
+	public List<Telefono> findByUsuarioId(String usuarioId);
 }

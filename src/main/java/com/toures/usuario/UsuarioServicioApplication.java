@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@EnableDiscoveryClient(autoRegister = false)
+@EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.toures.usuario", "com.commons.gema" })

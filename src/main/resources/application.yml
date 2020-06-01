@@ -13,10 +13,14 @@ spring:
  #   base-url: http://localhost:9411/
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/toures_domain_usuario
+    url: jdbc:mysql://localhost:3306/toures_domain_usuario?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: root
+    password:
+    initialization-mode: always
+    platform: mysql
   application:
     name: toures-balon-usuario
 eureka:

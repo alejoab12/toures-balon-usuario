@@ -34,6 +34,7 @@ public class UsuarioModelo {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@Pattern(regexp = ExpreReg.REGEX_PASSWORD, message = ExpreRegMensage.MENSAJE_PASSWORD)
 	private String contrasena;
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private List<RolModelo> roles;
 	private TipoUsuarioModelo tipoUsuario;
 

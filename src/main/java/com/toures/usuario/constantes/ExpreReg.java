@@ -5,7 +5,7 @@ public interface ExpreReg {
 			+ "[\\\\]{},.<>+=])|(?=.*?[a-z])(?:(?=.*?[0-9])|(?=.*?[-!@#$%^&*()_[\\\\]{},"
 			+ ".<>+=])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%^&*()_[\\\\]{},.<>+=]))[A-Za-z0-9!"
 			+ "@#$%^&*()_[\\\\]{},.<>+=-]{7,50}$";
-	public static final String REGEX_SOLO_LETRAS = "[A-Za-z]+";
+	public static final String REGEX_SOLO_LETRAS = "^[a-zA-Z\\s]*$";
 	public static final String REGEX_DOCUMENTO = "^[[0-9]{8,16}]*$";
 	public static final String REGEX_SOLO_NUMEROS = "^[0-9]*$";
 	public static final String REGEX_LETRAS_NUMEROS = "^[0-9a-zA-Z]+$";

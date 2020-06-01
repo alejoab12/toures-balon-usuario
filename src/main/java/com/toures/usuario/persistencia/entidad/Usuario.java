@@ -21,8 +21,9 @@ public class Usuario {
 	@JoinColumn(name = "tipo_documento_id")
 	private TipoDocumento tipoDocumentoId;
 	private String documento;
+	@Column(name = "correo",unique = true)
 	private String correo;
-	@Column(name = "nombre_usuario")
+	@Column(name = "nombre_usuario",unique = true)
 	private String nombreUsuario;
 	private String nombre;
 	private String apellido;

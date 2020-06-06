@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: toures-balon-usuario-deployment
+  labels:
+    app: toures-balon-usuario
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: toures-balon-usuario
+  template:
+    metadata:
+      labels:
+        app: toures-balon-usuario
+    spec:
+      containers:
+        - name: toures-balon-usuario
+          image: alejoab12/toures-balon-usuario
+          ports:
+            - containerPort: 8080
